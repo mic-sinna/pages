@@ -1,3 +1,5 @@
 for (let node of document.querySelectorAll(".exercise")) {
-    node.href = "https://mic-sinna.github.io/pages/music-gym/lol";
+    node.onlick = () => {
+        window.location.assign("https://mic-sinna.github.io/pages/music-gym/lol");
+    };
 }
