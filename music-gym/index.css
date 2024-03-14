@@ -1,0 +1,100 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+body > * {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#title-bar {
+    flex: 4 0 300px;
+    background-image: linear-gradient(180deg, hsl(282, 85%, 60%), hsl(253, 100%, 82%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-title h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+    font-size: 70px;
+}
+
+#main-title p {
+    text-align: center;
+    width: 450px;
+    font-size: 20px;
+    color: hsl(253, 94%, 93%);
+}
+
+
+#menu {
+    flex: 4 0 300px;
+    background-color: white;
+    box-shadow: 0px -5px 8px rgb(147, 131, 197);
+    display: flex;
+    flex-direction: column;
+}
+
+#menu > h1 {
+    flex: 0 0 auto;
+    color: hsl(0, 0%, 75%);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    font-size: 25px;
+}
+
+#exercises {
+    flex: 1 0 250px
+}
+
+#ex-cards {
+    height: 80%;
+    padding: 0px 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.exercise {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 13px;
+    box-shadow: 0px 0px 8px rgb(191, 170, 255);
+}
+
+.exercise:hover {
+    background-color: hsl(265, 84%, 76%);
+    cursor: pointer;
+}
+
+.exercise > p {
+    color:hsl(265, 84%, 76%);
+    text-align: center;
+    width: 60%;
+    font-size: 17px;
+}
+
+.exercise:hover > p {
+    background-color: hsl(265, 84%, 76%);
+    color: white;
+}
+
+/* #footer {
+    flex: 1 0 50px;
+    box-shadow: 0px 5px 8px rgb(81, 73, 108) inset;
+    background-color: hsl(259, 24%, 53%);
+} */

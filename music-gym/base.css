@@ -1,0 +1,14 @@
+html, html * {
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
