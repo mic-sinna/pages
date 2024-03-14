@@ -1,3 +1,3 @@
 for (let node of document.querySelectorAll(".exercise")) {
-    node.href = "/pages/music-gym/lol";
+    node.href = "https://mic-sinna.github.io/pages/music-gym/lol";
 }
