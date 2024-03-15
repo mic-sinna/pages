@@ -1,0 +1,1 @@
+const rootPath = "https://mic-sinna.github.io/pages/music-gym";

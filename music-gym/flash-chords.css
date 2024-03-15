@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(180deg, hsl(282, 85%, 60%), hsl(253, 100%, 82%));
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+#header {
+    flex: 0 0 fit-content;
+    display: flex;
+    justify-content: start;
+}
+
+#back-btn {
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+#back-btn:hover {
+    text-shadow: 0 0 5px hsl(282, 74%, 76%);
+    cursor: pointer;
+}
+
+#display {
+    box-sizing: border-box;
+    flex: 3 0 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+#chord {
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    font-size: 100px;
+    font-weight: bold;
+    color: hsl(281, 100%, 94%);
+}
+
+#controls {
+    flex: 1 0 100px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 13px rgb(113, 100, 151);
+}
