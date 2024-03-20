@@ -60,3 +60,53 @@ function sleep(duration) {
         }, duration);
     });
 }
+
+class SliderElement {
+
+    constructor(id) {
+        this.element = document.querySelector("#"+id+".slider");
+        this.proportion = 0;
+        this.mouseIsHeld = false;
+        this.sliderHandleIsHeld = false;
+        this.sliderHandleIsMousedOver = false;
+    }
+
+    init() {
+        const container = document.querySelector(".slider");
+        const scaleBox = container.querySelector(".scale");
+        const handle = scaleBox.querySelector(".handle");
+        const leftBar = scaleBox.querySelector(".accent");
+        const rightBar = scaleBox.querySelector(".base");
+        document.addEventListener("mousedown", () => {
+            this.mouseIsHeld = true;
+            if (this.sliderHandleIsMousedOver) {
+                this.sliderHandleIsHeld = true;
+            }
+        });
+        document.addEventListener("mouseup", () => {
+            this.mouseIsHeld = false;
+            this.sliderHandleIsHeld = false;
+        });
+        handle.addEventListener("mouseover", () => {
+            this.sliderHandleIsMousedOver = true;
+        });
+        handle.addEventListener("mouseout", () => {
+            this.sliderHandleIsMousedOver = false;
+        });
+        document.addEventListener("mousemove", (ev) => {
+            if (this.sliderHandleIsHeld) {
+                const {left, right} = scaleBox.getBoundingClientRect();
+                this.proportion = Math.round((ev.clientX - left) / (right - left) * 100) / 100;
+                if (this.proportion < 0) {
+                    this.proportion = 0;
+                } else if (this.proportion > 1) {
+                    this.proportion = 1;
+                }
+                handle.style.left = (this.proportion * 100) + "%";
+                leftBar.style.width = (this.proportion * 100) + "%";
+                rightBar.style.width = ((1 - this.proportion) * 100) + "%";
+            }
+        });
+    }
+
+}

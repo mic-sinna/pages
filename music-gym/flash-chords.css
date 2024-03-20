@@ -56,9 +56,11 @@ body {
 }
 
 #play-btn {
+    flex: 0 0 auto;
     box-sizing: border-box;
     height: 30px;
     width: 100px;
+    margin-right: 5px;
     border-radius: 10px;
     display: flex;
 }
@@ -66,4 +68,46 @@ body {
 #play-btn > p {
     text-align: center;
     font-weight: bold;
+}
+
+.slider {
+    flex: 1 0 auto;
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+
+.slider > .scale {
+    position: relative;
+    height: 100%;
+    display: flex;
+}
+
+.slider > .scale > .accent {
+    height: 100%;
+    width: 0%;
+    background-color: hsl(265, 84%, 76%);
+    border-radius: 5px 0px 0px 5px;
+}
+
+.slider > .scale > .base {
+    height: 100%;
+    width: 100%;
+    background-color: hsl(0, 0%, 62%);
+    border-radius: 0px 5px 5px 0px;
+}
+
+.slider .handle {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(-50%, -5px);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px hsl(255, 100%, 75%);
+    background-color: white;
+}
+
+.slider .handle:hover {
+    box-shadow: 0px 0px 8px hsl(255, 100%, 65%);
 }
