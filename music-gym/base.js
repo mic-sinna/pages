@@ -72,11 +72,18 @@ class SliderElement {
     }
 
     init() {
-        const container = document.querySelector(".slider");
-        const scaleBox = container.querySelector(".scale");
-        const handle = scaleBox.querySelector(".handle");
-        const leftBar = scaleBox.querySelector(".accent");
-        const rightBar = scaleBox.querySelector(".base");
+        const scaleBox = document.createElement("div");
+        scaleBox.classList.add("scale");
+        const leftBar = document.createElement("div");
+        leftBar.classList.add("leftBar");
+        scaleBox.appendChild(leftBar);
+        const rightBar = document.createElement("div");
+        rightBar.classList.add("rightBar");
+        scaleBox.appendChild(rightBar);
+        const handle = document.createElement("div");
+        handle.classList.add("handle");
+        scaleBox.appendChild(handle);
+        this.element.appendChild(scaleBox);
         document.addEventListener("mousedown", () => {
             this.mouseIsHeld = true;
             if (this.sliderHandleIsMousedOver) {

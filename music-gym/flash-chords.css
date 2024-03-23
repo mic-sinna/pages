@@ -82,14 +82,14 @@ body {
     display: flex;
 }
 
-.slider > .scale > .accent {
+.slider > .scale > .leftBar {
     height: 100%;
     width: 0%;
     background-color: hsl(265, 84%, 76%);
     border-radius: 5px 0px 0px 5px;
 }
 
-.slider > .scale > .base {
+.slider > .scale > .rightBar {
     height: 100%;
     width: 100%;
     background-color: hsl(0, 0%, 62%);
