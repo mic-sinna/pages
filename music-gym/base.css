@@ -1,5 +1,6 @@
 html, html * {
     margin: 0;
+    padding: 0;
     font-family: 'Trebuchet MS', 'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -34,4 +35,41 @@ body {
 
 .button:hover p {
     color: white;
+}
+
+.slider {
+    box-sizing: border-box;
+}
+
+.slider > .scale {
+    position: relative;
+    height: 100%;
+    display: flex;
+}
+
+.slider > .scale > .leftBar {
+    height: 100%;
+    width: 0%;
+}
+
+.slider > .scale > .rightBar {
+    height: 100%;
+    width: 100%;
+    
+}
+
+.slider > .scale > .handle-box {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slider > .scale > .handle-box > .handle {
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
 }

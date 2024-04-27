@@ -54,8 +54,8 @@ function sleep(duration) {
         setTimeout(() => {
             try {
                 resolve();
-            } catch {
-                reject();
+            } catch (err) {
+                reject(err);
             }
         }, duration);
     });
@@ -64,14 +64,12 @@ function sleep(duration) {
 class SliderElement {
 
     constructor(id) {
-        this.element = document.querySelector("#"+id+".slider");
+        this.elem = document.querySelector("#"+id+".slider");
         this.proportion = 0;
         this.mouseIsHeld = false;
         this.sliderHandleIsHeld = false;
         this.sliderHandleIsMousedOver = false;
-    }
-
-    init() {
+        this.updateHandlers = [];
         const scaleBox = document.createElement("div");
         scaleBox.classList.add("scale");
         const leftBar = document.createElement("div");
@@ -80,10 +78,14 @@ class SliderElement {
         const rightBar = document.createElement("div");
         rightBar.classList.add("rightBar");
         scaleBox.appendChild(rightBar);
+        const handleBox = document.createElement("div");
+        handleBox.classList.add("handle-box");
         const handle = document.createElement("div");
         handle.classList.add("handle");
-        scaleBox.appendChild(handle);
-        this.element.appendChild(scaleBox);
+        handleBox.appendChild(handle);
+        scaleBox.appendChild(handleBox);
+        this.elem.appendChild(scaleBox);
+
         document.addEventListener("mousedown", () => {
             this.mouseIsHeld = true;
             if (this.sliderHandleIsMousedOver) {
@@ -109,11 +111,20 @@ class SliderElement {
                 } else if (this.proportion > 1) {
                     this.proportion = 1;
                 }
+                this.updateHandlers.forEach(h => { h(this.proportion); });
                 handle.style.left = (this.proportion * 100) + "%";
                 leftBar.style.width = (this.proportion * 100) + "%";
                 rightBar.style.width = ((1 - this.proportion) * 100) + "%";
             }
         });
+    }
+
+    addUpdateHandler(handler) {
+        this.updateHandlers.push(handler);
+    }
+
+    removeUpdateHandler(handler) {
+        this.updateHandlers = this.updateHandlers.filter(h => h != handler);
     }
 
 }

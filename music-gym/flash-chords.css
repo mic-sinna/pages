@@ -1,4 +1,6 @@
 body {
+    min-width: 360px;
+    min-height: 450px;
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(180deg, hsl(282, 85%, 60%), hsl(253, 100%, 82%));
@@ -70,44 +72,46 @@ body {
     font-weight: bold;
 }
 
-.slider {
-    flex: 1 0 auto;
+#speed-label {
+    flex: 0 0 auto;
     box-sizing: border-box;
-    padding: 10px 20px;
-}
-
-.slider > .scale {
-    position: relative;
-    height: 100%;
+    height: 30px;
     display: flex;
+    align-items: center;
+    margin-left: 30px;
 }
 
-.slider > .scale > .leftBar {
-    height: 100%;
-    width: 0%;
+#speed-label > p {
+    text-align: center;
+    height: fit-content;
+    padding-bottom: 3px;
+    font-weight: bold;
+    color: #aaa;
+}
+
+#speed-slider {
+    flex: 1 0 auto;
+    height: 30px; 
+    padding: 8px 18px;
+}
+
+#speed-slider .leftBar {
     background-color: hsl(265, 84%, 76%);
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 7px 0px 0px 7px;
 }
 
-.slider > .scale > .rightBar {
-    height: 100%;
-    width: 100%;
+#speed-slider .rightBar {
     background-color: hsl(0, 0%, 62%);
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 7px 7px 0px;
 }
 
-.slider .handle {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    transform: translate(-50%, -5px);
+#speed-slider .handle {
     height: 20px;
     width: 20px;
-    border-radius: 50%;
     box-shadow: 0px 0px 8px hsl(255, 100%, 75%);
     background-color: white;
 }
 
-.slider .handle:hover {
+#speed-slider .handle:hover {
     box-shadow: 0px 0px 8px hsl(255, 100%, 65%);
 }
