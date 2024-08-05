@@ -12,13 +12,13 @@ function toneToString(tone) {
                 toneNotations = ["C"];
                 break;
             case 1:
-                toneNotations = ["C\u266F","D\u266D"];
+                toneNotations = ["C#","Db"];
                 break;
             case 2:
                 toneNotations = ["D"];
                 break;
             case 3:
-                toneNotations = ["D\u266F","E\u266D"];
+                toneNotations = ["D#","Eb"];
                 break;
             case 4:
                 toneNotations = ["E"];
@@ -27,19 +27,19 @@ function toneToString(tone) {
                 toneNotations = ["F"];
                 break;
             case 6:
-                toneNotations = ["F\u266F","G\u266D"];
+                toneNotations = ["F#","Gb"];
                 break;
             case 7:
                 toneNotations = ["G"];
                 break;
             case 8:
-                toneNotations = ["G\u266F","A\u266D"];
+                toneNotations = ["G#","Ab"];
                 break;
             case 9:
                 toneNotations = ["A"];
                 break;
             case 10:
-                toneNotations = ["A\u266F","B\u266D"];
+                toneNotations = ["A#","Bb"];
                 break;
             case 11:
                 toneNotations = ["B"];
