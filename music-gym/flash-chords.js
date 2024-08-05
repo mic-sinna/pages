@@ -8,8 +8,6 @@ const displayChangeIntervalRangeMin = 1000;
 const displayChangeIntervalRangeMax = 4000;
 const speedSlider = new SliderElement("speed-slider");
 
-let freq = displayChangeIntervalRangeMax; //[DEBUG]
-
 let playing = false;
 const playerLoop = async () => {
     while (playing) {
@@ -20,10 +18,6 @@ const playerLoop = async () => {
         const minChangeFreq = 1 / displayChangeIntervalRangeMax;
         const maxChangeFreq = 1 / displayChangeIntervalRangeMin;
         const changeFreq = minChangeFreq + (maxChangeFreq - minChangeFreq) * speedSlider.proportion
-        if (changeFreq != freq) {
-            freq = changeFreq;
-            console.log("freq: "+freq+", interval: "+(1/freq));
-        }
         await sleep(1 / changeFreq);
     }
     chordDisplay.textContent = "";

@@ -70,6 +70,7 @@ class SliderElement {
         this.sliderHandleIsHeld = false;
         this.sliderHandleIsMousedOver = false;
         this.updateHandlers = [];
+
         const scaleBox = document.createElement("div");
         scaleBox.classList.add("scale");
         const leftBar = document.createElement("div");
@@ -102,19 +103,50 @@ class SliderElement {
         handle.addEventListener("mouseout", () => {
             this.sliderHandleIsMousedOver = false;
         });
+
+        document.addEventListener("touchstart", (ev) => {
+            const touch = ev.touches.length == 1 ? ev.touches.item(0) : null;
+            if (touch != null) {
+                const {left, right, top, bottom} = handle.getBoundingClientRect();
+                if (touch.clientX >= left && touch.clientX <= right && touch.clientY >= top && touch.clientY <= bottom) {
+                    this.sliderHandleIsHeld = true;
+                }
+            }
+        });
+        document.addEventListener("touchend", (ev) => {
+            if (this.sliderHandleIsHeld) {
+                this.sliderHandleIsHeld = false;
+            }
+        });
+
+        const onHandleDragged = (currentX) => {
+            const {left, right} = scaleBox.getBoundingClientRect();
+            const proportion = Math.round((currentX - left) / (right - left) * 100) / 100;
+            if (proportion < 0) {
+                this.proportion = 0;
+            } else if (proportion > 1) {
+                this.proportion = 1;
+            } else {
+                this.proportion = proportion;
+            }
+            this.updateHandlers.forEach(hndlr => { hndlr(this.proportion); });
+            handle.style.left = (this.proportion * 100) + "%";
+            leftBar.style.width = (this.proportion * 100) + "%";
+            rightBar.style.width = ((1 - this.proportion) * 100) + "%";
+        };
+
         document.addEventListener("mousemove", (ev) => {
             if (this.sliderHandleIsHeld) {
-                const {left, right} = scaleBox.getBoundingClientRect();
-                this.proportion = Math.round((ev.clientX - left) / (right - left) * 100) / 100;
-                if (this.proportion < 0) {
-                    this.proportion = 0;
-                } else if (this.proportion > 1) {
-                    this.proportion = 1;
+                onHandleDragged(ev.clientX);
+            }
+        });
+
+        document.addEventListener("touchmove", (ev) => {
+            if (this.sliderHandleIsHeld) {
+                const touch = ev.touches.length == 1 ? ev.touches.item(0) : null;
+                if (touch != null) {
+                    onHandleDragged(touch.clientX);
                 }
-                this.updateHandlers.forEach(h => { h(this.proportion); });
-                handle.style.left = (this.proportion * 100) + "%";
-                leftBar.style.width = (this.proportion * 100) + "%";
-                rightBar.style.width = ((1 - this.proportion) * 100) + "%";
             }
         });
     }
