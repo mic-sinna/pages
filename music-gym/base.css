@@ -1,10 +1,10 @@
 html, html * {
     margin: 0;
     padding: 0;
-    font-family: 'Trebuchet MS', 'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 html {
+    font-family: 'Trebuchet MS', 'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     width: 100vw;
     height: 100vh;
 }

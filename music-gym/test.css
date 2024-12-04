@@ -1,0 +1,49 @@
+html, html * {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Trebuchet MS', 'Segoe UI', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#cont-0 {
+    display: flex;
+    height: 50%;
+}
+
+#cont-0-0 {
+    background-color: blue;
+    width: 50%;
+    height: 100%;
+}
+
+#cont-0-1 {
+    background-color: red;
+    width: 50%;
+    height: 100%;
+}
+
+#cont-1 {
+    display: flex;
+    height: 50%;
+}
+
+#cont-1-0 {
+    background-color: green;
+    width: 50%;
+    height: 100%;
+}
+
+#cont-1-1 {
+    background-color: yellow;
+    width: 50%;
+    height: 100%;
+}
